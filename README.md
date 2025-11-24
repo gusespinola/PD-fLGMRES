@@ -4,7 +4,7 @@
 
 ## Requirements
 
-To reproduce the results, you will need the Krylov Subspace-Based Adaptive Solvers [(KrySBAS)](https://github.com/nidtec-una/krysbas-dev/) library (release [0.3.1](https://github.com/nidtec-una/krysbas-dev/releases/tag/v0.3.1)) and the 
+To reproduce the results, you will need the Krylov Subspace-Based Adaptive Solvers [(KrySBAS)](https://github.com/nidtec-una/krysbas-dev/) library (release [0.3.1](https://github.com/nidtec-una/krysbas-dev/releases/tag/v0.3.1)) and the PF_full_Lgmres.m solver.
 
 ## Reproducing the results
 
