@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 %modificado por jccf julio 2025
 
 %clear all
@@ -6,6 +7,9 @@
 %Inputs include A,x0,b,m,tol
 
 function [logres,tiempoC,ciclos]= PD_full_Lgmres(A,b,mPD, alpha, delta,itermax)
+=======
+function [logres,tiempoC,ciclos]= PD_full_Lgmres(A,b,mPD, lL, alpha, delta,itermax)
+>>>>>>> Stashed changes
 
 tic;         %Time Control
 tol=1e-9;
