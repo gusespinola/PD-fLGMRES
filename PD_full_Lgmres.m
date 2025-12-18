@@ -1,10 +1,3 @@
-%modificado por jccf julio 2025
-
-%clear all
-%clc
-%This is a basic gmres program with restart
-%Inputs include A,x0,b,m,tol
-
 function [logres,tiempoC,ciclos]= PD_full_Lgmres(A,b,mPD, alpha, delta,itermax)
 
 tic;         %Time Control
@@ -216,31 +209,63 @@ while flag==0
 end  %while flag
 
 tiempo=toc     %Imprime tiempo de ejecucion
-l
-%subplot(1,1,1);
-##semilogy(logres,'r')
-##hold on
-##%final_value = logres(end);
-##%semilogy(length(logres), final_value, 'ro', 'MarkerSize', 10, 'LineWidth', 2);
-##
-##xlabel ('Número de Ciclos');
-##ylabel ('Norma relativa del residuo');
-##title('Convergencia del metodo GMRES(m),LGMRES(m,k) y LGMRES ADAPTATIVO')
-%semilogy(logres,'b')
-%title(Name_Matrix);
-%title(color);
-%xlabel('Number of Restart Cycle');ylabel('|rj|/|r0|');
-% legend(['PD-GMRES(27,alpha_{P}=', num2str(alpha0),',alpha_{D}=', num2str(delta0),'), t= ', num2str(tiempo)],'Location','Best');
-%title(['Example 2.2 - Complementary cycles of GMRES. Nl=', num2str(Nl),'; delta=', num2str(dl)])
- % hold on
-%  subplot(2,1,2);
-%  plot(miteracion,color)
-%  xlabel('Number of restart cycles');ylabel('m, restart parameters');
-%   hold on
+
 lastcycle=size(logres,1);
 %tiempoC= [lastcycle tiempo];
 tiempoC= tiempo
 ciclos= lastcycle
 NormaResidual=logres;
+
+
+function miter = pdrule(m,minitial,mmin,res,iter,mstep,mmax, alpha, delta) %implementacion Cabral
+
+ ap=0;
+ ad=0;
+
+if iter >3
+    
+mj= m + ceil(alpha*(res(iter,:)/res(iter-1,:)) + delta*((res(iter,:) - res(iter-2,:))/(2*res(iter-1,:))));
+%mj= m + round(alpha*(res(iter,:)/res(iter-1,:)) + delta*((res(iter,:) - res(iter-2,:))/(2*res(iter-1,:))));
+    
+ ap=res(iter,:)/res(iter-1,:);
+ ad=(res(iter,:) - res(iter-2,:))/(2*res(iter-1,:));
+
+elseif iter >2
+    mj= m + ceil(alpha*(res(iter,:)/res(iter-1,:)));
+    %    mj= m + round(alpha*(res(iter,:)/res(iter-1,:)));
+
+else
+    mj=minitial;
+end
+
+% ap=res(iter,:)/res(iter-1,:)
+% if iter >3
+% ad=(res(iter,:) - res(iter-2,:))/(2*res(iter-1,:))
+%end
+
+
+% if mj <= 0
+%      mj=abs(mj) + mstep;
+% end
+if mj < mmin
+    minitial = minitial + mstep;
+    mj=minitial;
+end
+
+if mj > mmax
+%    miter=minitial;
+%     miter=miter-mstep;
+    %mj=mmax-mstep;
+    mj=mmax;
+end
+
+miter= [mj minitial] ;
+miter= [mj minitial ap ad] ;
+
+    
+
+    
+
+
 
 
