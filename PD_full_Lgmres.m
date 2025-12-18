@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+%<<<<<<< Updated upstream
 %modificado por jccf julio 2025
 
 %clear all
@@ -222,14 +222,14 @@ end  %while flag
 tiempo=toc     %Imprime tiempo de ejecucion
 l
 %subplot(1,1,1);
-##semilogy(logres,'r')
-##hold on
-##%final_value = logres(end);
-##%semilogy(length(logres), final_value, 'ro', 'MarkerSize', 10, 'LineWidth', 2);
-##
-##xlabel ('Número de Ciclos');
-##ylabel ('Norma relativa del residuo');
-##title('Convergencia del metodo GMRES(m),LGMRES(m,k) y LGMRES ADAPTATIVO')
+%%semilogy(logres,'r')
+%%hold on
+%%%final_value = logres(end);
+%%%semilogy(length(logres), final_value, 'ro', 'MarkerSize', 10, 'LineWidth', 2);
+%%
+%%xlabel ('Número de Ciclos');
+%%ylabel ('Norma relativa del residuo');
+%%title('Convergencia del metodo GMRES(m),LGMRES(m,k) y LGMRES ADAPTATIVO')
 %semilogy(logres,'b')
 %title(Name_Matrix);
 %title(color);

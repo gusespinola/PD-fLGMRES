@@ -275,7 +275,8 @@ end
 semilogy(pd_flogres,color_pd_flgmres)
 title(Name_Matrix);
  xlabel('Number of Restart Cycle');ylabel('|rj|/|r0|');
-  legend('GMRES(30)', 'LGMRES(28,2)', 'PD-GMRES','PD-ALGMRES','PD-fLGMRES');
+  %legend('GMRES(30)', 'LGMRES(28,2)', 'PD-GMRES','PD-ALGMRES','PD-fLGMRES');
+  legend('PD-fLGMRES');
 % legend(
 % %%legend(['GMRES(30); cycle= ', num2str(sol1(1,1)),'; t= ', num2str(sol1(1,2)),' s.'], ...
 % %%  ['LGMRES(28,2); cycle= ', num2str(sol2(1,1)),'; t= ', num2str(sol2(1,2)),' s.'], ...
