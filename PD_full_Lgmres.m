@@ -6,10 +6,10 @@
 %This is a basic gmres program with restart
 %Inputs include A,x0,b,m,tol
 
-function [logres,tiempoC,ciclos]= PD_full_Lgmres(A,b,mPD, alpha, delta,itermax)
-=======
+%function [logres,tiempoC,ciclos]= PD_full_Lgmres(A,b,mPD, alpha, delta,itermax)
+%=======
 function [logres,tiempoC,ciclos]= PD_full_Lgmres(A,b,mPD, lL, alpha, delta,itermax)
->>>>>>> Stashed changes
+%>>>>>>> Stashed changes
 
 tic;         %Time Control
 tol=1e-9;
